@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = anthropic.Anthropic()
-model = "claude-sonnet-4-6"
+MODEL = "claude-sonnet-4-6"
 
 def add_user_message(messages, text):
     user_message = { "role": "user", "content": text}
@@ -17,36 +17,37 @@ def add_assistant_message(messages, text):
     messages.append(assistant_message)
     return messages
 
+def chat(messages, system=None, isActiveSystemPrompt=True):
+    params = {
+        "model": MODEL,
+        "max_tokens": 1000,
+        "messages": messages,
+    }
 
-system="""
-    You are a patient math tutor.
-    Do not directly answer a student's questions.
-    Guide them to a solution step by step.
-    Explain briefly each topic.
-"""    
+    if system and isActiveSystemPrompt:
+        params["system"] = system
 
-def chat(messages):
-    message = client.messages.create(
-        model=model,
-        max_tokens=1000,
-        messages=messages,
-        system=system
-    )
+    message = client.messages.create(**params)
     return message.content[0].text
 
 # Math Teacher by system propmpts
 messages = []
-
+system_prompt="""
+    You are a patient math tutor.
+    Do not directly answer a student's questions.
+    Guide them to a solution step by step.
+    Explain briefly each topic.
+"""   
 
 while True:
     # get user input
     user_input = input("> ")
-    print("User input >", user_input)
+    print("Received user input. Thinking...")
 
     # Add user input to messages
     add_user_message(messages, user_input)
     # Send to Chat
-    answer = chat(messages)
+    answer = chat(messages, system_prompt)
 
     # Add assistant response to messages
     add_assistant_message(messages, answer)
