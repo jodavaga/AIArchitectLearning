@@ -22,6 +22,7 @@ def chat(messages, system=None, isActiveSystemPrompt=True):
         "model": MODEL,
         "max_tokens": 1000,
         "messages": messages,
+        "temperature": 0.5
     }
 
     if system and isActiveSystemPrompt:
