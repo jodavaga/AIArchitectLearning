@@ -1,5 +1,5 @@
 import anthropic
-from  dotenv import load_dotenv
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -9,14 +9,12 @@ messages = []
 
 def add_user_message(messages, text):
     user_message = { "role": "user", "content": text}
-    print("Adding User message...")
     messages.append(user_message)
     return messages
 
 
 def add_assistant_message(messages, text):
     assistant_message = { "role": "assistant", "content": text}
-    print("Adding Assistant message...")
     messages.append(assistant_message)
     return messages
 
@@ -28,19 +26,23 @@ def chat(messages):
     )
     return message.content[0].text
 
-# Add the initial user question
-add_user_message(messages, "Define quantum computing in one sentence")
 
-# Get Claude's response
-answer = chat(messages)
-print('Assistant:', answer)
+while True:
+    # get user input
+    user_input = input("> ")
+    print("User input >", user_input)
 
-# Add Claude's response to the conversation history
-add_assistant_message(messages, answer)
+    # Add user input to messages
+    add_user_message(messages, user_input)
+    # Send to Chat
+    answer = chat(messages)
 
-# Add a follow-up question
-add_user_message(messages, "Write another sentence")
+    # Add assistant response to messages
+    add_assistant_message(messages, answer)
 
-# Get the follow-up response with full context
-final_answer = chat(messages)
-print('Assistant:', final_answer)
+    print("---")
+    print(answer)
+    print("---")
+    
+
+
