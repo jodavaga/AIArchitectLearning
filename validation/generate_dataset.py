@@ -4,8 +4,8 @@ import json
 from client.claude_client import add_user_message, add_assistant_message, chat
 
 DATA_DIR = "validation/data"
-
-GENERATE_DATASET_PROMPT = """
+OBJECTS_AMOUNT = 3
+GENERATE_DATASET_PROMPT = f"""
     Generate a evaluation dataset for a prompt evaluation.
     The dataset will be used to evaluate prompts that generate Python, JSON, or Regex specifically for AWS-related tasks.
     Generate an array of each representing task that requires Python, JSON, or a Regex to complete.
@@ -13,9 +13,10 @@ GENERATE_DATASET_PROMPT = """
     Example output:
     ```json
     [
-        {
+        {{
             "task": "Description of task"
-        },
+            "type": "python" or "json" or "regex"
+        }},
         ...additional
     ]
     ```
@@ -23,7 +24,7 @@ GENERATE_DATASET_PROMPT = """
     *   Focus on tasks that can be solved by writing a single Python function, a single JSON object,
     *   Focus on tasks that do not require writing much code
 
-    lets generate 3 objects
+    lets generate {OBJECTS_AMOUNT} objects
 """
 
 
