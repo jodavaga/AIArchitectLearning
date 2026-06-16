@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Marathon training carb-loading with high calorie intake, meals timed around 6am run and evening strength training",
+      "restrictions": "Vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan contains exactly 3-4 meals with specific timing aligned to training windows (pre-run, post-run, pre-strength session)",
+      "Daily calorie intake supports high-endurance athlete needs (approximately 3000-3500 calories)",
+      "Carbohydrate content is elevated for carb-loading strategy with emphasis on complex carbs",
+      "All meals respect vegetarian diet and exclude nuts"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single Athlete.",
+    "scenario": "Testing with a high-endurance athlete (marathon runner) requiring carb-loading and high calorie intake, with specific timing preferences for meals around training windows"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178",
+      "weight": "85",
+      "goal": "Strength and muscle gain for weightlifting competition",
+      "restrictions": "Vegetarian"
+    },
+    "solution_criteria": [
+      "Meal plan contains exactly 4-5 meals distributed throughout the day",
+      "Minimum 1.8g protein per kg bodyweight (153g total) with relatively even distribution across meals",
+      "Includes only vegetarian protein sources (legumes, dairy, eggs, tofu, nuts, seeds)",
+      "Provides estimated macronutrient ratios approximately 40% protein, 40% carbohydrates, 20% fats"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single Athlete.",
+    "scenario": "Testing with a strength/power athlete (weightlifter) needing high protein distribution across meals and specific macronutrient ratios, with dietary restrictions (e.g., vegetarian)"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "78 kg",
+      "goal": "Maintain performance and energy levels for early morning soccer training (6:00 AM) and afternoon match preparation",
+      "restrictions": "Vegetarian, no dairy"
+    },
+    "solution_criteria": [
+      "Meal plan spans exactly one day with quick-prep meals requiring \u226415 minutes preparation time",
+      "Includes pre-training nutrition (before 6:00 AM), post-training recovery meal, and pre-match fueling with specific hydration guidelines",
+      "All meals comply with vegetarian and dairy-free restrictions",
+      "Provides adequate calories and macronutrients for a 78 kg athlete with high activity demands"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single Athlete.",
+    "scenario": "Testing with a team sport athlete (soccer player) having limited time between early morning training and afternoon commitments, requiring quick-prep meals and specific hydration guidelines"
+  }
+]

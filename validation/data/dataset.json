@@ -1,11 +1,14 @@
 [
   {
-    "task": "Write a Python function that parses an AWS CloudWatch log entry and extracts the timestamp, log level, and message. The log entry is a JSON string."
+    "task": "Parse an AWS S3 bucket name and region from an S3 URI (s3://bucket-name/key) and return them as separate variables",
+    "format": "regex"
   },
   {
-    "task": "Create a JSON CloudFormation template snippet that defines an S3 bucket with versioning enabled and public access blocked."
+    "task": "Create a JSON configuration object for an AWS Lambda function that includes function name, runtime, role ARN, timeout, and memory allocation",
+    "format": "json"
   },
   {
-    "task": "Write a Python function that validates an AWS IAM policy document (provided as a dictionary) to ensure it contains required fields like 'Version', 'Statement', and that each statement has 'Effect' and 'Action'."
+    "task": "Write a Python function that takes an AWS CloudWatch log message and extracts the timestamp, log level, and message content",
+    "format": "python"
   }
 ]
