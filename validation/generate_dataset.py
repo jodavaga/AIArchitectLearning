@@ -15,7 +15,7 @@ GENERATE_DATASET_PROMPT = f"""
     [
         {{
             "task": "Description of task"
-            "type": "python" or "json" or "regex"
+            "format": "python" or "json" or "regex"
         }},
         ...additional
     ]

@@ -1,14 +1,14 @@
 [
   {
-    "task": "Parse an AWS CloudFormation template and extract all resource logical IDs",
-    "type": "python"
+    "task": "Parse an AWS S3 bucket name and region from an S3 URI (s3://bucket-name/key) and return them as separate variables",
+    "format": "regex"
   },
   {
-    "task": "Create a JSON policy document that allows an IAM user to read objects from a specific S3 bucket",
-    "type": "json"
+    "task": "Create a JSON configuration object for an AWS Lambda function that includes function name, runtime, role ARN, timeout, and memory allocation",
+    "format": "json"
   },
   {
-    "task": "Extract AWS account IDs from a list of ARN strings using pattern matching",
-    "type": "regex"
+    "task": "Write a Python function that takes an AWS CloudWatch log message and extracts the timestamp, log level, and message content",
+    "format": "python"
   }
 ]
