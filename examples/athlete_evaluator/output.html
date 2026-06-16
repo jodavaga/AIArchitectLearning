@@ -1,0 +1,427 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">6.0 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">66.7%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a strength/power athlete (weightlifter) needing protein-focused meals and strategic meal timing around resistance training with emphasis on muscle recovery</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180 cm<br><strong>weight:</strong> 85 kg<br><strong>goal:</strong> Maximize muscle recovery and strength gains from resistance training<br><strong>restrictions:</strong> None</td>
+                <td class="criteria">• Meal plan includes 4-5 meals distributed throughout the day with strategic timing around training<br>• Total daily protein intake meets or exceeds 1.6g per kg of body weight (136g minimum)<br>• Pre-training and post-training meals are specifically identified with appropriate macronutrient composition<br>• Plan is compact and concise (fits within 1 page format)</td>
+                <td class="output"><pre># Plan de Comidas de 1 Día para Atleta
+
+## Información del Atleta
+- Altura: 180 cm
+- Peso: 85 kg
+- Objetivo: Maximizar recuperación muscular y ganancias de fuerza
+- Calorías estimadas: 3,200-3,500 kcal/día
+- Proteína: 170-190g | Carbohidratos: 400-450g | Grasas: 100-120g
+
+---
+
+## **DESAYUNO (7:00 AM)** - 850 kcal
+- 4 huevos enteros (revueltos)
+- 2 tazas de avena cocida
+- 1 plátano mediano
+- 30g de almendras
+- Café negro o té verde
+
+**Macros:** 35g proteína | 95g carbohidratos | 28g grasas
+
+---
+
+## **MERIENDA 1 (10:30 AM)** - 400 kcal
+- 250g de yogurt griego natural
+- 60g de granola
+- 80g de fresas frescas
+- 20g de miel
+
+**Macros:** 25g proteína | 50g carbohidratos | 8g grasas
+
+---
+
+## **ALMUERZO (1:00 PM)** - 950 kcal
+- 250g de pechuga de pollo a la plancha
+- 250g de arroz integral cocido
+- 150g de brócoli al vapor
+- 15ml de aceite de oliva (para cocinar)
+- Ensalada mixta con limón
+
+**Macros:** 50g proteína | 110g carbohidratos | 18g grasas
+
+---
+
+## **MERIENDA 2 (4:00 PM)** - 450 kcal
+*Pre-entreno (30-45 min antes del ejercicio)*
+- 2 rebanadas de pan integral
+- 30g de mantequilla de maní
+- 1 manzana mediana
+- Agua con electrolitos
+
+**Macros:** 18g proteína | 55g carbohidratos | 16g grasas
+
+---
+
+## **CENA (7:30 PM)** - 900 kcal
+*Post-entreno (dentro de 60 min después)*
+- 250g de salmón a la parrilla
+- 300g de papa dulce cocida
+- 150g de espinaca salteada
+- 10ml de aceite de oliva
+- Limón y especias
+
+**Macros:** 45g proteína | 95g carbohidratos | 30g grasas
+
+---
+
+## **MERIENDA 3 (10:00 PM)** - 350 kcal
+*Antes de dormir*
+- 250ml de leche desnatada
+- 40g de caseína en polvo (o requesón)
+- 15g de almendras
+
+**Macros:** 32g proteína | 30g carbohidratos | 12g grasas
+
+---
+
+## **TOTALES DEL DÍA**
+- **Calorías:** 3,900 kcal
+- **Proteína:** 205g (21% de calorías)
+- **Carbohidratos:** 435g (44% de calorías)
+- **Grasas:** 112g (26% de calorías)
+- **Fibra:** 35-40g
+
+---
+
+## **RECOMENDACIONES ADICIONALES**
+✓ Beber 3-4 litros de agua durante el día
+✓ Consumir post-entreno dentro de la hora siguiente
+✓ Ajustar porciones según respuesta corporal
+✓ Incluir suplementos: creatina (5g), BCAA's o proteína whey
+✓ Descanso de 7-9 horas para óptima recuperación</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution meets all three mandatory requirements: it provides daily caloric total (3,900 kcal), complete macronutrient breakdown (205g protein, 435g carbs, 112g fat), and meals with exact foods, portions, and timing. It exceeds the protein requirement (205g vs 136g minimum) and includes strategically timed pre- and post-training meals. However, it violates secondary criteria by including 6 meals instead of 4-5, and the formatted output exceeds typical 1-page length. The Spanish language presentation is also a minor concern depending on expected output language. Despite these formatting issues, the core nutritional content is sound and meets all mandatory requirements.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a high-endurance athlete (marathon runner) requiring high calorie intake and carbohydrate loading with specific timing around training sessions</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178<br><strong>weight:</strong> 68<br><strong>goal:</strong> Marathon training - high-endurance performance with carbohydrate loading and pre/post-workout nutrition timing<br><strong>restrictions:</strong> Vegetarian, no nuts</td>
+                <td class="criteria">• Meal plan covers full 24-hour period with 4-5 meals/snacks<br>• Total daily calories and carbohydrate content support marathon training demands (minimum 3000 kcal, 60% carbs)<br>• Includes pre-workout, during-workout (if applicable), and post-workout nutrition with appropriate timing<br>• All meals respect vegetarian and nut-free restrictions</td>
+                <td class="output"><pre># Plan de Comidas de Un Día para Atleta de Maratón
+
+## Información del Atleta
+- **Altura:** 178 cm
+- **Peso:** 68 kg
+- **Objetivo:** Entrenamiento de maratón - rendimiento de alta resistencia
+- **Restricciones:** Vegetariano, sin frutos secos
+
+---
+
+## **DESAYUNO (7:00 AM)** - 600 calorías
+- Avena integral con plátano y semillas de girasol (60g avena)
+- 2 huevos revueltos
+- Pan integral tostado (2 rebanadas)
+- Mermelada de frutas (1 cucharada)
+- Jugo de naranja natural (250ml)
+
+**Macronutrientes:** Carbohidratos 80g | Proteína 20g | Grasas 12g
+
+---
+
+## **SNACK PRE-ENTRENAMIENTO (10:00 AM)** - 250 calorías
+- Plátano mediano
+- Yogur griego desnatado (150g)
+- Miel (1 cucharada)
+
+**Macronutrientes:** Carbohidratos 45g | Proteína 15g | Grasas 2g
+
+---
+
+## **ALMUERZO (1:00 PM)** - 700 calorías
+- Lentejas rojas con arroz integral (100g lentejas cocidas, 80g arroz)
+- Ensalada verde (lechuga, tomate, pepino, zanahoria)
+- Queso fresco bajo en grasa (50g)
+- Aceite de oliva (1 cucharada)
+- Pan integral (1 rebanada)
+- Agua con limón
+
+**Macronutrientes:** Carbohidratos 95g | Proteína 22g | Grasas 10g
+
+---
+
+## **SNACK POST-ENTRENAMIENTO (4:30 PM)** - 300 calorías
+- Batido de proteína: Leche desnatada (250ml), proteína en polvo (25g), plátano, miel
+- Galletas integrales (2 unidades)
+
+**Macronutrientes:** Carbohidratos 50g | Proteína 28g | Grasas 3g
+
+---
+
+## **CENA (7:30 PM)** - 550 calorías
+- Hamburguesa vegetariana casera con legumbres (garbanzos y lentejas)
+- Pan integral para hamburguesa
+- Verduras asadas: brócoli, calabacín, pimiento rojo
+- Salsa de tomate natural
+- Té de manzanilla
+
+**Macronutrientes:** Carbohidratos 72g | Proteína 18g | Grasas 8g
+
+---
+
+## **HIDRATACIÓN DURANTE EL DÍA**
+- 3-4 litros de agua
+- 500ml bebida deportiva con electrolitos durante el entrenamiento
+
+---
+
+## **RESUMEN NUTRICIONAL TOTAL**
+| Nutriente | Cantidad |
+|-----------|----------|
+| **Calorías** | ~2,400 kcal |
+| **Carbohidratos** | 342g (57%) |
+| **Proteína** | 103g (17%) |
+| **Grasas** | 35g (13%) |
+
+**Notas:** Este plan prioriza carbohidratos para carga glucogénica, proteína de calidad para recuperación muscular, y timing estratégico de nutrientes alrededor del entrenamiento.</pre></td>
+                <td class="score-col"><span class="score score-low">4</span></td>
+                <td class="reasoning">The solution meets the mandatory format requirements (daily total, macronutrient breakdown, exact portions with timing) and respects all dietary restrictions. However, it fails a critical secondary criterion: the caloric and carbohydrate content is inadequate for marathon training demands. A 68kg athlete in marathon training requires approximately 3,000+ kcal daily with 60%+ carbohydrates (180g+), but this plan provides only 2,400 kcal with 342g carbs at 57%. While the meal structure and timing are sound, the nutritional targets are insufficient to support the stated goal of 'high-endurance performance with carbohydrate loading.' The plan would leave an athlete under-fueled for marathon training.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a sport-specific athlete (soccer player) requiring balanced macronutrients, hydration guidelines, and meals that support both aerobic and anaerobic performance demands</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180 cm<br><strong>weight:</strong> 78 kg<br><strong>goal:</strong> Optimize performance and recovery for soccer match and training<br><strong>restrictions:</strong> Vegetarian, no dairy</td>
+                <td class="criteria">• Includes 4-6 meals/snacks with balanced macronutrients (carbs for aerobic/anaerobic demands, protein for recovery, healthy fats)<br>• Provides specific hydration guidelines with timing and volume recommendations<br>• All meals align with vegetarian and dairy-free restrictions<br>• Meal plan is compact and concise (fits within 1 page format)</td>
+                <td class="output"><pre># Plan de Comidas de Un Día - Atleta Vegetariano Sin Lácteos
+
+## Información del Atleta
+- **Altura:** 180 cm
+- **Peso:** 78 kg
+- **Objetivo:** Optimizar rendimiento y recuperación para partido y entrenamiento de fútbol
+- **Restricciones:** Vegetariano, sin productos lácteos
+
+---
+
+## output
+
+### **DESAYUNO (07:00) - 550 calorías**
+- **Avena con plátano y mantequilla de almendras**
+  - 80 g de copos de avena
+  - 1 plátano mediano
+  - 2 cucharadas de mantequilla de almendras
+  - 200 ml de bebida de almendra enriquecida
+  - Puñado de arándanos frescos
+  
+**Macros:** Proteína 16g | Carbohidratos 75g | Grasas 18g
+
+---
+
+### **SNACK MATUTINO (10:00) - 280 calorías**
+- **Barrita energética casera + té verde**
+  - Barrita de dátiles, nueces y cacao (70g)
+  - 250 ml de té verde con miel
+
+**Macros:** Proteína 8g | Carbohidratos 42g | Grasas 10g
+
+---
+
+### **ALMUERZO (13:00) - 650 calorías**
+- **Ensalada de legumbres con quinua**
+  - 150 g de lentejas cocidas
+  - 100 g de quinua cocida
+  - Verduras mixtas (tomate, pepino, pimiento)
+  - 2 cucharadas de aceite de oliva virgen
+  - Limón y hierbas aromáticas
+  - Acompañado de pan integral (1 rebanada)
+
+**Macros:** Proteína 18g | Carbohidratos 85g | Grasas 12g
+
+---
+
+### **SNACK PREENTRENAMIENTO (15:30) - 320 calorías**
+- **Batido energético**
+  - 1 plátano
+  - 40 g de proteína vegetal en polvo (guisante o arroz)
+  - 200 ml de bebida de soja enriquecida
+  - 1 cucharada de mantequilla de cacahuete
+  - 1 cucharada de miel
+
+**Macros:** Proteína 22g | Carbohidratos 48g | Grasas 8g
+
+---
+
+### **CENA (20:00) - 580 calorías**
+- **Garbanzos al curry con verduras y arroz integral**
+  - 200 g de garbanzos cocidos
+  - Brócoli, zanahoria y cebolla salteados (200g)
+  - 150 g de arroz integral cocido
+  - 1 cucharada de aceite de coco
+  - Curry, ajo y jengibre
+
+**Macros:** Proteína 17g | Carbohidratos 78g | Grasas 11g
+
+---
+
+### **HIDRATACIÓN**
+- Agua: 3-4 litros distribuidos a lo largo del día
+- Bebida isotónica casera (durante entrenamiento intenso)
+
+---
+
+## **RESUMEN NUTRICIONAL DEL DÍA**
+
+| Macronutriente | Cantidad | Objetivo |
+|---|---|---|
+| **Calorías** | ~2,380 kcal | ✅ |
+| **Proteína** | 81 g (13.6%) | ✅ (1.04 g/kg) |
+| **Carbohidratos** | 328 g (55%) | ✅ |
+| **Grasas** | 59 g (22.3%) | ✅ |
+
+---
+
+## **RECOMENDACIONES IMPORTANTES**
+
+✓ Asegu</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution successfully meets all mandatory requirements: it includes daily caloric total, complete macronutrient breakdown with percentages, and 5 meals with exact foods, portions, and timing. All meals strictly adhere to vegetarian and dairy-free restrictions using appropriate substitutes. The plan is reasonably compact and well-organized. However, the solution is technically incomplete due to text truncation, and hydration guidelines, while present, lack the specificity and timing detail that would optimize performance for soccer. The caloric intake is slightly conservative but defensible. Despite the truncation issue, the core deliverables are present and functional.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
