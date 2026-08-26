@@ -47,15 +47,27 @@ def grade_by_model(test_case, output):
     return json.loads(sanitized)
 
 
+FORMAT_INSTRUCTIONS = {
+    "json": "Respond only with JSON",
+    "python": "Respond only with Python code",
+    "regex": "Respond only with plain regex code",
+    "lsp": "Respond only with AutoLISP (.lsp) code, defining the command with (defun c:CommandName ...)",
+}
+
+
 def run_prompt(test_case):
     """Merges the prompt and test case input, then returns the result"""
+
+    format_instruction = FORMAT_INSTRUCTIONS.get(
+        test_case["format"], "Respond only with Python, JSON or plain regex code"
+    )
 
     prompt = f"""
         Solve the following task:
 
         {test_case["task"]}
 
-    * Respond only with Python, JSON or plain regex code
+    * {format_instruction}
     * Do not add any comments, commentary or explanation neither before or after code solution
     """
 
@@ -97,5 +109,12 @@ def run_evaluator(dataset):
     average_score = mean([result["score"] for result in results])
     # Read it as: "give me result["score"] for each result in the results list."
     print(f"Average score: {average_score:.2f}")
-    
+
     return results
+
+
+if __name__ == "__main__":
+    for result in run_evaluator(dataset):
+        print(f"\n--- {result['test_case']['task-name']} (score: {result['score']:.1f}) ---")
+        print(result["reasoning"])
+        print(result["output"])

@@ -17,10 +17,10 @@ def add_assistant_message(messages, text):
     return messages
 
 
-def chat(messages, system=None, model=DEFAULT_MODEL, temperature=0.6, stop_sequences=[]):
+def chat(messages, system=None, model=DEFAULT_MODEL, temperature=0.6, stop_sequences=[], max_tokens=1000):
     params = {
         "model": model,
-        "max_tokens": 1000,
+        "max_tokens": max_tokens,
         "messages": messages,
         "temperature": temperature,
     }
